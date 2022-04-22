@@ -5,12 +5,14 @@
    Gripcal et superviser par David Beaulieux un professeur en technique du génie physique
    au Cégep André-Laurendeau
 
-   But du code: Le but de se code est de premetre de venir bruler des données dans la
+   But du code: Le but de ce code est de permettre de venir bruler des données dans la
    mémoire Flash du ESP 32. Comme ça peut importe le code que nous instalons les données
-   enregistrer reste enregistrer et peuvent être appeler quand nous le désirons. Les bibliothèques
-   Preference.h et nvs_flash.h sont importante pour que le code fonctionne bien. Ne pas oublier
+   enregistrées reste enregistrées et peuvent être appelées quand nous le désirons. Les bibliothèques
+   Preference.h et nvs_flash.h sont importantes pour que le code fonctionne bien. Ne pas oublier
    que le code flash credential doit impérativement avoir été fait pour permettre l'effacement de
-   ces fameuses données.
+   ces fameuses données. Pour d'autre renseignement sur le type de valeur que nous pouvons inscrire
+   dans la mémoire flash veuillez consulter ce site internet:
+   https://github.com/espressif/arduino-esp32/blob/master/libraries/Preferences/src/Preferences.h
 */
 
 #include <Preferences.h>
@@ -21,8 +23,8 @@ Preferences preferences;
 float valeur;
 
 /********************************************************/
-// Fonction qui permet de venir bruler les donnée dans la mémoire flash
-// nom : le nom du dossier dans lequel la donnée va être enregistrer
+// Fonction qui permet de venir bruler les données dans la mémoire flash
+// nom : le nom du dossier dans lequel la donnée va être enregistrée
 // tag : l'étiquette de la valeur
 // value : la valeur de la donnée
 
@@ -37,10 +39,10 @@ void storeFlashDataFloat(String nom, String tag, float value) {
   preferences.end();
 }
 /********************************************************/
-// Fonction permettant de lire se que nous avons enregistrer dans la mémoire flash
+// Fonction permettant de lire ce que nous avons enregistré dans la mémoire flash
 // nom : nom du classeur ou la donnée est enregistré
 // tag : L'étiquet de la donnée
-// La fonction renvois dans la varriable "valeur" la valeur de la donnée rechercher. 
+// La fonction renvois dans la varriable "valeur" la valeur de la donnée recherchée. 
 
 void recallFlashDataFloat(String nom, String tag) {
   char classeur[12];
